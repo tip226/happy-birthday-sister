@@ -123,15 +123,6 @@ function createBalloons(words) {
         balloon.textContent = word;
         balloon.style.setProperty('--order', index);
 
-        // Randomize initial position and animation duration
-        const randomLeft = Math.random() * 80 + "vw"; // Random position between 0vw and 80vw to ensure words fit
-        const randomDuration = Math.random() * 5 + 5 + "s"; // Random duration between 5s and 10s
-        const randomDelay = Math.random() * 5 + "s"; // Random delay between 0s and 5s
-
-        balloon.style.left = randomLeft;
-        balloon.style.animationDuration = randomDuration;
-        balloon.style.animationDelay = randomDelay;
-
         balloonContainer.appendChild(balloon);
     });
 }
