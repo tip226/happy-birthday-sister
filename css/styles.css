@@ -238,13 +238,9 @@ p.message {
     font-size: 14px;
 }
 
-.confetti {
-    /* Add confetti styles and animation here */
-}
-
 #cake {
     position: absolute;
-    bottom: 2%; /* Adjust this value to position the cake higher or lower from the bottom */
+    bottom: 0.25%; /* Adjust this value to position the cake higher or lower from the bottom */
     left: 40%;
     transform: translateX(-50%);
     font-size: 100px; /* Increase the size of the cake */
@@ -261,7 +257,7 @@ p.message {
     height: 40px;
     background-color: rgb(80, 200, 120);
     border-radius: 2px;
-    top: 35px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
 }

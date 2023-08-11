@@ -92,14 +92,23 @@ toBedroom.addEventListener('click', () => {
 });
 
 // surprise interactions
+
+// Function to trigger confetti
+function launchConfetti() {
+    confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+
 const giftBox = document.getElementById('giftBox');
 const giftReveal = document.getElementById('giftReveal');
 
 giftBox.addEventListener('click', () => {
     bedroom.style.display = 'none';
     giftReveal.style.display = 'block';
-
-    // You can add more interactions here, like starting the confetti animation
+    launchConfetti();
 });
 
 // ... Your existing JavaScript code ...
