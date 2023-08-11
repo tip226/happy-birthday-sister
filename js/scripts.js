@@ -103,37 +103,42 @@ giftBox.addEventListener('click', () => {
     // You can add more interactions here, like starting the confetti animation
 });
 
+// ... Your existing JavaScript code ...
+
 document.getElementById('giftBox').addEventListener('click', function() {
     createBalloons(['Happy', '21st', 'Birthday,', 'Big', 'Sis', '❤️']);
+    // Make balloons visible
+    document.querySelectorAll('.balloon').forEach(balloon => {
+        balloon.style.opacity = '1';
+    });
 });
+
+function createBalloons(words) {
+    const balloonContainer = document.querySelector('.balloon-container');
+    balloonContainer.innerHTML = ''; // Clear previous balloons
+
+    words.forEach((word, index) => {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.textContent = word;
+        balloon.style.setProperty('--order', index);
+
+        // Randomize initial position and animation duration
+        const randomLeft = Math.random() * 80 + "vw"; // Random position between 0vw and 80vw to ensure words fit
+        const randomDuration = Math.random() * 5 + 5 + "s"; // Random duration between 5s and 10s
+        const randomDelay = Math.random() * 5 + "s"; // Random delay between 0s and 5s
+
+        balloon.style.left = randomLeft;
+        balloon.style.animationDuration = randomDuration;
+        balloon.style.animationDelay = randomDelay;
+
+        balloonContainer.appendChild(balloon);
+    });
+}
 
 cake.addEventListener('click', () => {
     cake.textContent = '🎉'; // Change to a lit candle or celebration icon
     document.getElementById('cakeMessage').classList.add('hidden');
 });
-
-// Balloon animation
-const words = "Happy 21st Birthday, Big Sis ❤️".split(' ');
-const balloonContainer = document.createElement('div');
-balloonContainer.classList.add('balloon-container');
-
-words.forEach((word, index) => {
-    const balloon = document.createElement('div');
-    balloon.classList.add('balloon');
-    balloon.textContent = word;
-
-    // Randomize initial position and animation duration
-    const randomLeft = Math.random() * 80 + "vw"; // Random position between 0vw and 80vw to ensure words fit
-    const randomDuration = Math.random() * 5 + 5 + "s"; // Random duration between 5s and 10s
-    const randomDelay = Math.random() * 5 + "s"; // Random delay between 0s and 5s
-
-    balloon.style.left = randomLeft;
-    balloon.style.animationDuration = randomDuration;
-    balloon.style.animationDelay = randomDelay;
-
-    balloonContainer.appendChild(balloon);
-});
-
-document.body.appendChild(balloonContainer);
 
 // ... More interactions for other scenes will be added ...

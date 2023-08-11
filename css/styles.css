@@ -98,29 +98,43 @@ p.message {
 
 .balloon {
     position: absolute;
-    font-size: 2rem;
-    bottom: -100px;
-    left: calc(50% - 12px); /* Centering the balloon */
-    animation: flyBalloon linear infinite;
-    will-change: transform;
-    width: 40px;
-    height: 60px;
-    background-color: #4CAF50; /* Emerald Green */
-    border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    bottom: -10%;
+    animation: float 6s infinite, flyOut 10s 1s forwards;
+    font-size: 1.5em; /* Increase font size */
     color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px; /* Adjust according to the size of the balloon */
+    transition: opacity 1s; /* Fade in balloons */
+    z-index: 2;
+    opacity: 0.5;
+    position: relative;
+    left: calc(10% + var(--order) * 15%); /* Adjust initial positioning */
 }
 
 .balloon::before {
-    content: "";
+    content: '';
     position: absolute;
-    bottom: -10px;
+    width: 100px; /* Increase balloon width */
+    height: 140px; /* Increase balloon height */
+    background-color: hsl(calc(var(--order) * 60), 100%, 50%); /* Different color for each balloon */
+    border-radius: 50% 50% 50% 50%;
+    top: 50%;
     left: 50%;
-    width: 2px;
-    height: 15px;
-    background-color: #4CAF50; /* Emerald Green */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 1px; /* Thinner string */
+    height: 150px; /* Longer string */
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0 0 50% 50%;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 @keyframes flyBalloon {
@@ -137,16 +151,16 @@ p.message {
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-50vh);
+        transform: translateY(-100vh);
     }
 }
 
 @keyframes converge {
     0% {
-        left: calc(50% - 12px);
+        left: calc(10% + var(--order) * 15%); /* Adjust initial positioning */
     }
     100% {
-        left: calc(5% + var(--order) * 5%);
+        left: calc(5% + var(--order) * 15%); /* Adjust final positioning */
     }
 }
 
