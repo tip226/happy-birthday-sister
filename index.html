@@ -61,7 +61,7 @@
         
         <!-- Video Item -->
         <div class="photo-item video-item">
-            <video controls preload="metadata" autoplay>
+            <video controls preload="none" onended="handleVideoEnd(this)">
                 <source src="images/video1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>            
