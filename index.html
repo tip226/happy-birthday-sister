@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 21st Birthday!</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .scene {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        #darkRoom {
+            background-color: black;
+            color: white;
+        }
+        #bedroom {
+            background-image: url('https://i.imgur.com/0X8YQm4.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            animation: bounce 1s infinite;
+        }
+        .banner {
+            display: none;
+            font-size: 24px;
+            background-color: rgba(0, 128, 0, 0.7); /* Emerald Green with some transparency */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        #darkRoomMessage3, #bedroomMessage4 {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #FFD700; /* Gold color for emphasis */
+        }
+    </style>
+</head>
+<body>
+    <!-- Scene 1: Dark Room -->
+    <div class="scene" id="darkRoom">
+        <p class="message hidden fade-in" id="darkRoomMessage1">Hey, why is it so dark here?</p>
+        <p class="message hidden fade-in" id="darkRoomMessage2">Can you turn the lights on?</p>
+        <button class="hidden" id="lightSwitch">🔦</button>
+        <p class="message hidden fade-in" id="darkRoomMessage3">Click on the light bulb to turn on the lights.</p>
+    </div>
+
+    <!-- Scene 2: Bedroom -->
+    <div class="scene hidden" id="bedroom">
+        <p class="message hidden fade-in" id="bedroomMessage1">Why is it so empty here?</p>
+        <p class="message hidden fade-in" id="bedroomMessage2">You know what, let's go outside.</p>
+        <p class="message hidden fade-in" id="bedroomMessage3">Let's see if everyone's there.</p>
+        <button class="hidden" id="toHallway">🚪</button>
+        <p class="message hidden fade-in" id="bedroomMessage4">Click on the door to go outside.</p>
+    </div>
+
+    <!-- ... Other scenes ... -->
+
+    <script>
+        // Scene 1 interactions
+        const darkRoomMessage1 = document.getElementById('darkRoomMessage1');
+        const darkRoomMessage2 = document.getElementById('darkRoomMessage2');
+        const darkRoomMessage3 = document.getElementById('darkRoomMessage3');
+        const lightSwitch = document.getElementById('lightSwitch');
+        const bedroom = document.getElementById('bedroom');
+
+        setTimeout(() => {
+            darkRoomMessage1.classList.remove('hidden');
+            setTimeout(() => {
+                darkRoomMessage2.classList.remove('hidden');
+                setTimeout(() => {
+                    lightSwitch.classList.remove('hidden');
+                    setTimeout(() => {
+                        darkRoomMessage3.classList.remove('hidden');
+                    }, 1500);
+                }, 1500);
+            }, 1500);
+        }, 1500);
+
+        lightSwitch.addEventListener('click', () => {
+            document.getElementById('darkRoom').style.display = 'none';
+            bedroom.style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('bedroomMessage1').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('bedroomMessage2').classList.remove('hidden');
+                    setTimeout(() => {
+                        document.getElementById('bedroomMessage3').classList.remove('hidden');
+                        setTimeout(() => {
+                            document.getElementById('toHallway').classList.remove('hidden');
+                            setTimeout(() => {
+                                document.getElementById('bedroomMessage4').classList.remove('hidden');
+                            }, 1500);
+                        }, 1500);
+                    }, 1500);
+                }, 1500);
+            }, 500);
+        });
+
+        // ... More interactions for other scenes will be added ...
+    </script>
+</body>
+</html>
