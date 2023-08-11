@@ -103,17 +103,37 @@ giftBox.addEventListener('click', () => {
     // You can add more interactions here, like starting the confetti animation
 });
 
+document.getElementById('giftBox').addEventListener('click', function() {
+    createBalloons(['Happy', '21st', 'Birthday,', 'Big', 'Sis', '❤️']);
+});
+
 cake.addEventListener('click', () => {
     cake.textContent = '🎉'; // Change to a lit candle or celebration icon
     document.getElementById('cakeMessage').classList.add('hidden');
 });
 
 // Balloon animation
-const balloons = document.querySelectorAll('.balloon');
-balloons.forEach((balloon, index) => {
-    setTimeout(() => {
-        balloon.style.animation = `flyOut ${5 + index * 0.5}s forwards`;
-    }, index * 500);
+const words = "Happy 21st Birthday, Big Sis ❤️".split(' ');
+const balloonContainer = document.createElement('div');
+balloonContainer.classList.add('balloon-container');
+
+words.forEach((word, index) => {
+    const balloon = document.createElement('div');
+    balloon.classList.add('balloon');
+    balloon.textContent = word;
+
+    // Randomize initial position and animation duration
+    const randomLeft = Math.random() * 80 + "vw"; // Random position between 0vw and 80vw to ensure words fit
+    const randomDuration = Math.random() * 5 + 5 + "s"; // Random duration between 5s and 10s
+    const randomDelay = Math.random() * 5 + "s"; // Random delay between 0s and 5s
+
+    balloon.style.left = randomLeft;
+    balloon.style.animationDuration = randomDuration;
+    balloon.style.animationDelay = randomDelay;
+
+    balloonContainer.appendChild(balloon);
 });
+
+document.body.appendChild(balloonContainer);
 
 // ... More interactions for other scenes will be added ...
