@@ -95,3 +95,74 @@ p.message {
     position: relative;
     z-index: 1;
 }
+
+.balloon {
+    position: absolute;
+    font-size: 24px;
+    animation: flyOut 5s forwards;
+}
+
+@keyframes flyOut {
+    0% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(10%);
+    }
+}
+
+.photo-timeline {
+    display: flex;
+    animation: slide 20s infinite linear;
+    gap: 20px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid rgba(0, 128, 0, 0.7); /* Emerald Green */
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-item img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.photo-caption {
+    margin-top: 10px;
+    background-color: rgba(0, 128, 0, 0.7); /* Emerald Green with some transparency */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.confetti {
+    /* Add confetti styles and animation here */
+}
+
+#cake {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+}

@@ -91,4 +91,29 @@ toBedroom.addEventListener('click', () => {
     }, 500);
 });
 
+// surprise interactions
+const giftBox = document.getElementById('giftBox');
+const giftReveal = document.getElementById('giftReveal');
+const cake = document.getElementById('cake');
+
+giftBox.addEventListener('click', () => {
+    bedroom.style.display = 'none';
+    giftReveal.style.display = 'block';
+
+    // You can add more interactions here, like starting the confetti animation
+});
+
+cake.addEventListener('click', () => {
+    cake.textContent = '🎉'; // Change to a lit candle or celebration icon
+    document.getElementById('cakeMessage').classList.add('hidden');
+});
+
+// Balloon animation
+const balloons = document.querySelectorAll('.balloon');
+balloons.forEach((balloon, index) => {
+    setTimeout(() => {
+        balloon.style.animation = `flyOut ${5 + index * 0.5}s forwards`;
+    }, index * 500);
+});
+
 // ... More interactions for other scenes will be added ...
