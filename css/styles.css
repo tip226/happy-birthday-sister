@@ -121,7 +121,7 @@ p.message {
     opacity: 0.5;
     position: relative;
     left: auto; 
-    bottom: 0;
+    bottom: -200px;
     animation: flyBalloon 10s 1s forwards, float 6s infinite;
 }
 
@@ -141,13 +141,13 @@ p.message {
 .balloon::after {
     content: '';
     position: absolute;
-    width: 1px; /* Thinner string */
+    width: 0.5px; /* Even thinner string */
     height: 150px; /* Longer string */
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 0 0 50% 50%;
+    background-color: rgba(200, 200, 200, 0.7); /* Lighter color */
     top: 100%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(-5deg); /* Slight rotation for a curvy effect */
+    transform-origin: top;
 }
 
 @keyframes flyBalloon {
@@ -155,7 +155,7 @@ p.message {
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-80vh);
+        transform: translateY(-110vh);
     }
 }
 
@@ -182,8 +182,8 @@ p.message {
     animation: slide 20s infinite linear;
     gap: 20px;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 40%;
+    transform: translateY(-40%);
 }
 
 @keyframes slide {
