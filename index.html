@@ -28,6 +28,18 @@
             flex-direction: column;
             position: relative;
         }
+        .scene-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+        }
         #darkRoom {
             background-color: black;
             color: white;
@@ -81,26 +93,32 @@
             color: black; /* Dark text */
             padding: 10px;
             border-radius: 5px;
-            margin: 2px auto;
+            margin: 5px auto;
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
     <!-- Scene 1: Dark Room -->
     <div class="scene" id="darkRoom">
-        <p class="message hidden fade-in" id="darkRoomMessage1">Hey, why is it so dark here?</p>
-        <p class="message hidden fade-in" id="darkRoomMessage2">Can you turn the lights on?</p>
-        <button class="hidden" id="lightSwitch">🔦</button>
-        <p class="message hidden fade-in" id="darkRoomMessage3">Click on the light bulb to turn on the lights.</p>
+        <div class="scene-content">
+            <p class="message hidden fade-in" id="darkRoomMessage1">Hey, why is it so dark here?</p>
+            <p class="message hidden fade-in" id="darkRoomMessage2">Can you turn the lights on?</p>
+            <button class="hidden" id="lightSwitch">🔦</button>
+            <p class="message hidden fade-in" id="darkRoomMessage3">Click on the light bulb to turn on the lights.</p>
+        </div>
     </div>
 
     <!-- Scene 2: Bedroom -->
     <div class="scene hidden" id="bedroom">
-        <p class="message hidden fade-in" id="bedroomMessage1">Why is it so empty here?</p>
-        <p class="message hidden fade-in" id="bedroomMessage2">You know what, let's go outside.</p>
-        <p class="message hidden fade-in" id="bedroomMessage3">Let's see if everyone's there.</p>
-        <button class="hidden" id="toHallway">🚪</button>
-        <p class="message hidden fade-in" id="bedroomMessage4">Click on the door to go outside.</p>
+        <div class="scene-content">
+            <p class="message hidden fade-in" id="bedroomMessage1">Why is it so empty here?</p>
+            <p class="message hidden fade-in" id="bedroomMessage2">You know what, let's go outside.</p>
+            <p class="message hidden fade-in" id="bedroomMessage3">Let's see if everyone's there.</p>
+            <button class="hidden" id="toHallway">🚪</button>
+            <p class="message hidden fade-in" id="bedroomMessage4">Click on the door to go outside.</p>
+        </div>
     </div>
 
     <!-- ... Other scenes ... -->
