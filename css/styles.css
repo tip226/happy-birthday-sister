@@ -221,6 +221,23 @@ p.message {
     font-size: 14px;
 }
 
+.video-item video {
+    max-width: 100%;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.video-caption {
+    margin-top: 10px;
+    background-color: rgba(0, 128, 0, 0.7); /* Emerald Green with some transparency */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
 .confetti {
     /* Add confetti styles and animation here */
 }

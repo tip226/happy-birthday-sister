@@ -48,19 +48,28 @@
     <!-- Scene 5: Gift Box Reveal -->
     <div class="scene hidden" id="giftReveal">
         <!-- Photos -->
-        <div class="photo-timeline">
-            <div class="photo-item">
-                <img src="images/photo1.JPG" alt="Photo 1">
-                <p class="photo-caption">Mới làm lông mày xong nhìn cái mặt ngêu ngêu kìa</p>
-            </div>
-            <div class="photo-item">
-                <img src="images/photo2.JPG" alt="Photo 2">
-                <p class="photo-caption">Cắt cái mái cũng ngắn ahihihi</p>
-            </div>
-            <!-- ... add more photos with captions ... -->
+        <!-- Photos and Videos Timeline -->
+    <div class="photo-timeline">
+        <div class="photo-item">
+            <img src="images/photo1.JPG" alt="Photo 1">
+            <p class="photo-caption">Mới làm lông mày xong nhìn cái mặt ngêu ngêu kìa</p>
+        </div>
+        <div class="photo-item">
+            <img src="images/photo2.JPG" alt="Photo 2">
+            <p class="photo-caption">Cắt cái mái cũng ngắn ahihihi</p>
+        </div>
+        
+        <!-- Video Item -->
+        <div class="photo-item video-item">
+            <video controls preload="metadata" autoplay>
+                <source src="images/video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>            
+            <p class="video-caption">Uống nước mà cũng lạ lắm</p>
         </div>
 
-        <div class="confetti"></div>
+        <!-- ... add more photos, videos with captions ... -->
+    </div>
 
         <!-- Cake -->
         <button id="cake">🎂</button>
@@ -68,6 +77,7 @@
     </div>
 
     <!-- ... Other scenes ... -->
+    <!-- <div class="photo-timeline" id="photoTimeline">  -->
     <div class="balloon-container"></div>
     <script src="js/scripts.js"></script>
 </body>

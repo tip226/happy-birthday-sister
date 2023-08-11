@@ -127,6 +127,35 @@ function createBalloons(words) {
     });
 }
 
+const videos = document.querySelectorAll('.video-item video');
+
+videos.forEach(video => {
+    video.addEventListener('play', function() {
+        // Pause the timeline animation when a video starts playing
+        document.querySelector('.photo-timeline').style.animationPlayState = 'paused';
+
+        // When the video ends, resume the timeline animation
+        video.addEventListener('ended', function() {
+            document.querySelector('.photo-timeline').style.animationPlayState = 'running';
+        });
+    });
+});
+
+// Adjust the timeline animation duration based on video duration
+const adjustTimelineDuration = () => {
+    let totalDuration = 20; // default duration
+    videos.forEach(video => {
+        video.addEventListener('loadedmetadata', function() {
+            totalDuration += video.duration;
+        });
+    });
+
+    document.querySelector('.photo-timeline').style.animationDuration = totalDuration + 's';
+};
+
+adjustTimelineDuration();
+
+
 cake.addEventListener('click', () => {
     cake.textContent = '🎉'; // Change to a lit candle or celebration icon
     document.getElementById('cakeMessage').classList.add('hidden');
