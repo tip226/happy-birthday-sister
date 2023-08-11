@@ -5,6 +5,9 @@ const darkRoomMessage3 = document.getElementById('darkRoomMessage3');
 const lightSwitch = document.getElementById('lightSwitch');
 const bedroom = document.getElementById('bedroom');
 
+const creepyMusic = document.getElementById('creepyMusic');
+const birthdayMusic = document.getElementById('birthdayMusic');
+
 setTimeout(() => {
     darkRoomMessage1.classList.remove('hidden');
     setTimeout(() => {
@@ -19,6 +22,7 @@ setTimeout(() => {
 }, 1500);
 
 lightSwitch.addEventListener('click', () => {
+    creepyMusic.play();
     document.getElementById('darkRoom').style.display = 'none';
     bedroom.style.display = 'block';
     setTimeout(() => {
@@ -108,6 +112,8 @@ const giftReveal = document.getElementById('giftReveal');
 giftBox.addEventListener('click', () => {
     bedroom.style.display = 'none';
     giftReveal.style.display = 'block';
+    creepyMusic.pause();
+    birthdayMusic.play();
     launchConfetti();
 });
 
@@ -173,7 +179,20 @@ const options = {
 
 const observer = new IntersectionObserver(handleVideoVisibility, options);
 const videos = document.querySelectorAll('video');
-videos.forEach(video => observer.observe(video));
+videos.forEach(video => {
+    observer.observe(video);
+    video.addEventListener('play', () => {
+        birthdayMusic.volume = 0.02; // Lower the volume
+        // OR
+        // birthdayMusic.pause(); // Pause the music
+    });
+
+    video.addEventListener('ended', () => {
+        birthdayMusic.volume = 1; // Restore the volume
+        // OR
+        // birthdayMusic.play(); // Resume the music
+    });
+});
 
 const cake = document.getElementById('cake');
 cake.addEventListener('click', () => {
