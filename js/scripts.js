@@ -38,4 +38,57 @@ lightSwitch.addEventListener('click', () => {
     }, 500);
 });
 
+// Scene 2 to 3 interactions
+const toHallway = document.getElementById('toHallway');
+const hallway = document.getElementById('hallway');
+
+toHallway.addEventListener('click', () => {
+    bedroom.style.display = 'none';
+    hallway.style.display = 'block';
+    setTimeout(() => {
+        document.getElementById('hallwayMessage1').classList.remove('hidden');
+        setTimeout(() => {
+            document.getElementById('hallwayMessage2').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('hallwayMessage3').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('toBedroom').classList.remove('hidden');
+                    setTimeout(() => {
+                        document.getElementById('hallwayMessage4').classList.remove('hidden');
+                    }, 1500);
+                }, 1500);
+            }, 1500);
+        }, 1500);
+    }, 500);
+});
+
+// Scene 3 to 4 interactions
+const toBedroom = document.getElementById('toBedroom');
+
+// Scene 3 to 4 interactions
+toBedroom.addEventListener('click', () => {
+    hallway.style.display = 'none';
+    bedroom.style.display = 'block';
+
+    // Hide the conversation lines from Scene 2
+    document.getElementById('bedroomMessage1').classList.add('hidden');
+    document.getElementById('bedroomMessage2').classList.add('hidden');
+    document.getElementById('bedroomMessage3').classList.add('hidden');
+    document.getElementById('toHallway').classList.add('hidden');
+    document.getElementById('bedroomMessage4').classList.add('hidden');
+
+    setTimeout(() => {
+        document.getElementById('bedroomMessage5').classList.remove('hidden');
+        setTimeout(() => {
+            document.getElementById('bedroomMessage6').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('giftBox').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('bedroomMessage7').classList.remove('hidden');
+                }, 1500);
+            }, 1500);
+        }, 1500);
+    }, 500);
+});
+
 // ... More interactions for other scenes will be added ...

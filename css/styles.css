@@ -44,6 +44,11 @@ body, html {
     background-repeat: no-repeat;
     position: relative;
 }
+#hallway {
+    background-image: url('../images/hallway.jpg'); /* Replace with your hallway image */
+    background-size: cover;
+    background-position: center;
+}
 button {
     display: block;
     margin-left: auto;
