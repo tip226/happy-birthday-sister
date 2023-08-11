@@ -244,8 +244,40 @@ p.message {
 
 #cake {
     position: absolute;
-    bottom: 10%;
+    bottom: 2%; /* Adjust this value to position the cake higher or lower from the bottom */
+    left: 40%;
+    transform: translateX(-50%);
+    font-size: 100px; /* Increase the size of the cake */
+    transition: 0.3s; /* Smooth transition for size change */
+}
+
+#cake:hover {
+    font-size: 110px; /* Slightly increase the size on hover for a nice effect */
+}
+
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    background-color: rgb(80, 200, 120);
+    border-radius: 2px;
+    top: 35px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 70px;
 }
+
+.flame {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    top: -20px;
+    left: 0;
+    visibility: hidden;
+}
+
+#cake:hover .flame {
+    visibility: visible;
+}
+

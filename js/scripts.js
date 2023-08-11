@@ -94,7 +94,6 @@ toBedroom.addEventListener('click', () => {
 // surprise interactions
 const giftBox = document.getElementById('giftBox');
 const giftReveal = document.getElementById('giftReveal');
-const cake = document.getElementById('cake');
 
 giftBox.addEventListener('click', () => {
     bedroom.style.display = 'none';
@@ -160,18 +159,24 @@ function handleVideoVisibility(entries, observer) {
 const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.5
+    threshold: 0.75
 };
 
 const observer = new IntersectionObserver(handleVideoVisibility, options);
 const videos = document.querySelectorAll('video');
 videos.forEach(video => observer.observe(video));
 
-
-
+const cake = document.getElementById('cake');
 cake.addEventListener('click', () => {
-    cake.textContent = '🎉'; // Change to a lit candle or celebration icon
-    document.getElementById('cakeMessage').classList.add('hidden');
+    const flames = document.querySelectorAll('.flame');
+    flames.forEach(flame => {
+        if (flame.style.visibility === 'hidden' || flame.style.visibility === '') {
+            flame.style.visibility = 'visible';
+        } else {
+            flame.style.visibility = 'hidden';
+        }
+    });
 });
+
 
 // ... More interactions for other scenes will be added ...
