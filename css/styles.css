@@ -8,9 +8,11 @@ body, html, .scene {
     padding: 0;
 }
 body, html {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     overflow: hidden; /* Prevent scrolling */
     height: 100%;
+    color: #333;
+    line-height: 1.6;
 }
 .scene {
     width: 100%;
@@ -88,12 +90,17 @@ p.message {
     text-align: center;
     max-width: 80%;
     background-color: rgba(0, 128, 0, 0.5); /* Transparent emerald green */
-    color: black; /* Dark text */
+    color: white; /* Dark text */
     padding: 10px;
     border-radius: 5px;
     margin: 5px auto;
     position: relative;
     z-index: 1;
+}
+
+#giftReveal {
+    background-color: #50C878; /* Emerald Green */
+    color: #fff;
 }
 
 .balloon-container {
@@ -256,7 +263,7 @@ p.message {
     position: absolute;
     width: 10px;
     height: 40px;
-    background-color: rgb(80, 200, 120);
+    background-color: rgb(38,234,252);
     border-radius: 2px;
     top: 40px;
     left: 50%;

@@ -8,6 +8,16 @@ const bedroom = document.getElementById('bedroom');
 const creepyMusic = document.getElementById('creepyMusic');
 const birthdayMusic = document.getElementById('birthdayMusic');
 
+function fadeIn(element) {
+    element.animate([
+        { opacity: 0 },
+        { opacity: 1 }
+    ], {
+        duration: 1000,
+        fill: 'forwards'
+    });
+}
+
 setTimeout(() => {
     darkRoomMessage1.classList.remove('hidden');
     setTimeout(() => {
@@ -21,20 +31,47 @@ setTimeout(() => {
     }, 1500);
 }, 1500);
 
+setTimeout(() => {
+    fadeIn(darkRoomMessage1);
+    setTimeout(() => {
+        fadeIn(darkRoomMessage2);
+        setTimeout(() => {
+            fadeIn(lightSwitch);
+            setTimeout(() => {
+                fadeIn(darkRoomMessage3);
+            }, 1500);
+        }, 1500);
+    }, 1500);
+}, 1500);
+
 lightSwitch.addEventListener('click', () => {
     creepyMusic.play();
     document.getElementById('darkRoom').style.display = 'none';
     bedroom.style.display = 'block';
     setTimeout(() => {
-        document.getElementById('bedroomMessage1').classList.remove('hidden');
+        const bedroomMessage1 = document.getElementById('bedroomMessage1');
+        bedroomMessage1.classList.remove('hidden');
+        fadeIn(bedroomMessage1);
+        
         setTimeout(() => {
-            document.getElementById('bedroomMessage2').classList.remove('hidden');
+            const bedroomMessage2 = document.getElementById('bedroomMessage2');
+            bedroomMessage2.classList.remove('hidden');
+            fadeIn(bedroomMessage2);
+            
             setTimeout(() => {
-                document.getElementById('bedroomMessage3').classList.remove('hidden');
+                const bedroomMessage3 = document.getElementById('bedroomMessage3');
+                bedroomMessage3.classList.remove('hidden');
+                fadeIn(bedroomMessage3);
+                
                 setTimeout(() => {
-                    document.getElementById('toHallway').classList.remove('hidden');
+                    const toHallway = document.getElementById('toHallway');
+                    toHallway.classList.remove('hidden');
+                    fadeIn(toHallway);
+                    
                     setTimeout(() => {
-                        document.getElementById('bedroomMessage4').classList.remove('hidden');
+                        const bedroomMessage4 = document.getElementById('bedroomMessage4');
+                        bedroomMessage4.classList.remove('hidden');
+                        fadeIn(bedroomMessage4);
                     }, 1500);
                 }, 1500);
             }, 1500);
@@ -49,16 +86,31 @@ const hallway = document.getElementById('hallway');
 toHallway.addEventListener('click', () => {
     bedroom.style.display = 'none';
     hallway.style.display = 'block';
+
     setTimeout(() => {
-        document.getElementById('hallwayMessage1').classList.remove('hidden');
+        const hallwayMessage1 = document.getElementById('hallwayMessage1');
+        hallwayMessage1.classList.remove('hidden');
+        fadeIn(hallwayMessage1);
+        
         setTimeout(() => {
-            document.getElementById('hallwayMessage2').classList.remove('hidden');
+            const hallwayMessage2 = document.getElementById('hallwayMessage2');
+            hallwayMessage2.classList.remove('hidden');
+            fadeIn(hallwayMessage2);
+            
             setTimeout(() => {
-                document.getElementById('hallwayMessage3').classList.remove('hidden');
+                const hallwayMessage3 = document.getElementById('hallwayMessage3');
+                hallwayMessage3.classList.remove('hidden');
+                fadeIn(hallwayMessage3);
+                
                 setTimeout(() => {
-                    document.getElementById('toBedroom').classList.remove('hidden');
+                    const toBedroom = document.getElementById('toBedroom');
+                    toBedroom.classList.remove('hidden');
+                    fadeIn(toBedroom);
+                    
                     setTimeout(() => {
-                        document.getElementById('hallwayMessage4').classList.remove('hidden');
+                        const hallwayMessage4 = document.getElementById('hallwayMessage4');
+                        hallwayMessage4.classList.remove('hidden');
+                        fadeIn(hallwayMessage4);
                     }, 1500);
                 }, 1500);
             }, 1500);
@@ -109,6 +161,23 @@ function launchConfetti() {
 const giftBox = document.getElementById('giftBox');
 const giftReveal = document.getElementById('giftReveal');
 
+// Define the bounce animation using Web Animations API
+function bounce(element) {
+    element.animate([
+        // keyframes
+        { transform: 'translateY(0px)' },
+        { transform: 'translateY(-20px)' },
+        { transform: 'translateY(0px)' }
+    ], {
+        // timing options
+        duration: 1000,
+        iterations: Infinity
+    });
+}
+
+// Call the bounce function for the giftBox
+bounce(document.getElementById('giftBox'));
+
 giftBox.addEventListener('click', () => {
     bedroom.style.display = 'none';
     giftReveal.style.display = 'block';
@@ -116,8 +185,6 @@ giftBox.addEventListener('click', () => {
     birthdayMusic.play();
     launchConfetti();
 });
-
-// ... Your existing JavaScript code ...
 
 document.getElementById('giftBox').addEventListener('click', function() {
     createBalloons(['Happy', '21st', 'Birthday,', 'Big', 'Sis', '❤️']);
