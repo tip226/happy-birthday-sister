@@ -134,13 +134,24 @@ toBedroom.addEventListener('click', () => {
     document.getElementById('bedroomMessage4').classList.add('hidden');
 
     setTimeout(() => {
-        document.getElementById('bedroomMessage5').classList.remove('hidden');
+        const bedroomMessage5 = document.getElementById('bedroomMessage5');
+        bedroomMessage5.classList.remove('hidden');
+        fadeIn(bedroomMessage5);
+        
         setTimeout(() => {
-            document.getElementById('bedroomMessage6').classList.remove('hidden');
+            const bedroomMessage6 = document.getElementById('bedroomMessage6');
+            bedroomMessage6.classList.remove('hidden');
+            fadeIn(bedroomMessage6);
+            
             setTimeout(() => {
-                document.getElementById('giftBox').classList.remove('hidden');
+                const giftBox = document.getElementById('giftBox');
+                giftBox.classList.remove('hidden');
+                fadeIn(giftBox);
+                
                 setTimeout(() => {
-                    document.getElementById('bedroomMessage7').classList.remove('hidden');
+                    const bedroomMessage7 = document.getElementById('bedroomMessage7');
+                    bedroomMessage7.classList.remove('hidden');
+                    fadeIn(bedroomMessage7);
                 }, 1500);
             }, 1500);
         }, 1500);
