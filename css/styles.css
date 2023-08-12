@@ -178,7 +178,8 @@ p.message {
 }
 
 .photo-timeline {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     animation: slide 20s infinite linear;
     gap: 20px;
     position: relative;
@@ -277,3 +278,21 @@ p.message {
     visibility: visible;
 }
 
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    button {
+        padding: 15px 30px;
+        font-size: 35px;
+    }
+    .photo-item img, .video-item video {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+.photo-item img, .video-item video {
+    max-width: 100%;
+    height: auto;
+}
