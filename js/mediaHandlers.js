@@ -31,7 +31,7 @@ function handleVideoVisibility(entries, observer) {
 const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.85
+    threshold: 1
 };
 
 const observer = new IntersectionObserver(handleVideoVisibility, options);
