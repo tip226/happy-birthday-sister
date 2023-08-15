@@ -220,13 +220,13 @@ p.message {
 }
 
 .photo-caption {
-    margin-top: 10px;
     background-color: rgba(0, 128, 0, 0.7); /* Emerald Green with some transparency */
     color: white;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
     font-size: 14px;
+    width: 100%;  /* Take the full width of the container */
 }
 
 .video-item video {
@@ -294,12 +294,33 @@ p.message {
         font-size: 35px;
     }
     .photo-item img, .video-item video {
-        max-width: 200px;
-        max-height: 100px;
+        border: 5px solid rgba(0, 128, 0, 0.7); /* Emerald Green */
+        border-radius: 10px;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
     }
 }
 
-.photo-item img, .video-item video {
-    max-width: 100%;
-    height: auto;
+.photo-item, .video-item {
+    display: flex;  /* Change back to flex */
+    flex-direction: column;  /* Stack children vertically */
+    align-items: center;  /* Center children horizontally */
+    justify-content: center;  /* Center children vertically */
+    border: 5px solid rgba(0, 128, 0, 0.7); /* Emerald Green */
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;  /* Ensure content doesn't spill out */
+    margin: 10px;  /* Add some margin for spacing between items */
 }
+
+.photo-item img, .video-item video {
+    max-width: 100%;  /* Image or video will take the full width of its container */
+    height: auto;  /* Maintain the aspect ratio */
+    display: block;  /* Block display will remove any unwanted space around the image or video */
+    margin: 0 auto 10px auto;  /* Center the image or video horizontally and add margin at the bottom */
+}
+
