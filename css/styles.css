@@ -190,7 +190,7 @@ p.message {
     animation: slide 20s infinite linear;
     gap: 20px;
     position: relative;
-    top: 40%;
+    top: 30%;
     transform: translateY(-40%);
 }
 
@@ -294,7 +294,7 @@ p.message {
         font-size: 35px;
     }
     .photo-item img, .video-item video {
-        max-width: 100px;
+        max-width: 200px;
         max-height: 100px;
     }
 }
