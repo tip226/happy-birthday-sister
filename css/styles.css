@@ -303,24 +303,19 @@ p.message {
     }
 }
 
-.photo-item, .video-item {
-    display: flex;  /* Change back to flex */
-    flex-direction: column;  /* Stack children vertically */
-    align-items: center;  /* Center children horizontally */
-    justify-content: center;  /* Center children vertically */
-    border: 5px solid rgba(0, 128, 0, 0.7); /* Emerald Green */
-    border-radius: 10px;
-    padding: 10px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;  /* Ensure content doesn't spill out */
-    margin: 10px;  /* Add some margin for spacing between items */
+.photo-item img {
+    width: 100%;  /* Image will take the full width of its container */
+    height: 100%; /* Image will take the full height of its container */
+    object-fit: cover; /* Image will cover the container while maintaining its aspect ratio */
+    display: block;  /* Block display will remove any unwanted space around the image */
+    margin: 0 auto 10px auto;  /* Center the image horizontally and add margin at the bottom */
+    border-radius: 5px; /* Optional: to give rounded corners to the images */
 }
 
-.photo-item img, .video-item video {
-    max-width: 100%;  /* Image or video will take the full width of its container */
-    height: auto;  /* Maintain the aspect ratio */
-    display: block;  /* Block display will remove any unwanted space around the image or video */
-    margin: 0 auto 10px auto;  /* Center the image or video horizontally and add margin at the bottom */
+.video-item video {
+    width: 100%;  /* Video will take the full width of its container */
+    height: 100%; /* Video will take the full height of its container */
+    object-fit: cover; /* Video will cover the container while maintaining its aspect ratio */
+    display: block;  /* Block display will remove any unwanted space around the video */
+    margin: 0 auto 10px auto;  /* Center the video horizontally and add margin at the bottom */
 }
-
