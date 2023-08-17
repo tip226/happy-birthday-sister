@@ -185,18 +185,22 @@ p.message {
 }
 
 .photo-timeline {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    animation: slide 20s infinite linear;
+    display: flex;
+    overflow-x: hidden;
+    width: 51680px;
+    animation: slide 417s infinite linear;
     gap: 20px;
     position: relative;
     top: 30%;
-    transform: translateY(-40%);
+}
+
+.photo-timeline > * {  /* This targets all direct children of .photo-timeline */
+    min-width: 150px;  /* Adjust this value based on your needs */
 }
 
 @keyframes slide {
     0% {
-        transform: translateX(100%);
+        transform: translateX(100vw);
     }
     100% {
         transform: translateX(-100%);
@@ -318,4 +322,9 @@ p.message {
     object-fit: cover; /* Video will cover the container while maintaining its aspect ratio */
     display: block;  /* Block display will remove any unwanted space around the video */
     margin: 0 auto 10px auto;  /* Center the video horizontally and add margin at the bottom */
+}
+
+.photo-item, .video-item {
+    min-width: 150px; /* or whatever width you desire */
+    flex-shrink: 0;   /* prevent shrinking */
 }
